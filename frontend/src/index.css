@@ -1,0 +1,31 @@
+@tailwind base ;
+@tailwind components ;
+@tailwind utilities ;
+
+@font-face {
+  font-family: newFont;
+  src: url(../public/Urbanist.ttf);
+}
+
+* {
+  margin:0;
+  padding: 0;
+  box-sizing: border-box ;
+}
+
+html, body {
+  width: 100% ;
+  height: 100% ;
+  font-family: newFont;
+  background-color: #122023 ;
+  color: white ;
+}
+
+
+.h1-NotRender {
+  text-align: center;
+  margin-top: 50px ;
+  font-size: 32px;
+}
+
+/* #2ECC40 */
