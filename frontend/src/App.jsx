@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import SearchTrucks from './components/SearchTrucks.jsx'
 import Dashboard from './components/Dashboard.jsx'
-import SignIn from './components/SignIn.jsx'
+import LogIn from './components/LogIn.jsx'
 import SignUp from './components/SignUp.jsx'
 import Home from './components/Home.jsx'
 import Random from './components/Random.jsx'
@@ -11,9 +11,8 @@ export default function App() {
     <BrowserRouter>
     <Routes>
 
-      <Route path='/' element={<Home />} />
-
-      <Route path='/sign-in' element={<SignIn />} />
+      <Route path='/' element={<Home/>} />
+      <Route path='/log-in' element={<LogIn />} />
       <Route path='/sign-up' element={<SignUp />} />
 
       <Route path='/' element={<Random />} >
