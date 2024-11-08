@@ -5,15 +5,22 @@ import LogIn from './components/LogIn.jsx'
 import SignUp from './components/SignUp.jsx'
 import Home from './components/Home.jsx'
 import Random from './components/Random.jsx'
+import Layout from './components/Layout.jsx'
 
 export default function App() {
   return (
     <BrowserRouter>
     <Routes>
 
-      <Route path='/' element={<Home/>} />
+      {/* <Route path='/' element={<Home/>} />
       <Route path='/log-in' element={<LogIn />} />
-      <Route path='/sign-up' element={<SignUp />} />
+      <Route path='/sign-up' element={<SignUp />} /> */}
+
+      <Route path='/' element={<Layout />}>
+        <Route path='' element={<Home />} />
+        <Route path='/log-in' element={<LogIn />} />
+        <Route path='/sign-up' element={<SignUp />} />
+      </Route>
 
       <Route path='/' element={<Random />} >
         <Route path='/dashboard' element={<Dashboard />} />

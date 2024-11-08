@@ -1,73 +1,64 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { RiArrowDownSLine } from '@remixicon/react';
-import { Link } from 'react-router-dom';
-import logo from "../../public/logo-no-background.png"
+import { Link } from "react-router-dom";
 
-const SignUp = () => {
-  const lineRefs = useRef([]);
-
-  useEffect(() => {
-    lineRefs.current.forEach((line, index) => {
-      gsap.to(line, {
-        x: '100vw',
-        duration: 4 + index,
-        ease: 'power1.inOut',
-        repeat: -1,
-        yoyo: true,
-      });
-    });
-  }, []);
-
+const LogIn = () => {
   return (
-    <div className="relative w-full h-screen overflow-hidden">
-      {/* Navbar */}
-      <nav className="flex justify-between items-center px-12 py-4 border-b border-gray-400">
+    <div className="w-1/2 mx-auto py-5">
+      <div>
 
-        <div className="flex items-center space-x-2 w-2/5">
-          <img width="200" src={logo} alt="" />
+        <div>
+          <h2 className="text-2xl font-semibold text-center mb-2">Log in</h2>
+          <p className="text-center text-gray-600 mb-6">
+            to continue to your DAT account
+          </p>
         </div>
 
-        <div className="w-3/5 flex justify-evenly text-xl">
-            <ul className="flex items-center gap-x-10 mr-14">
-                <Link to=""><li className="flex items-center gap-x-2">Products <RiArrowDownSLine /></li></Link>
-                <Link to=""><li className="flex items-center gap-x-2">Solutions <RiArrowDownSLine /></li></Link>
-                <Link to=""><li className="flex items-center gap-x-2">Resources <RiArrowDownSLine /></li></Link>
-                <Link to=""><li className="flex items-center gap-x-2">Contact</li></Link>
-            </ul>
-            <ul className="flex gap-x-10">
-                <Link to="log-in" className="hover:text-[#2ECC40]"><li>Login</li></Link>
-                <Link to="sign-up" className="hover:text-[#2ECC40]"><li>Signup</li></Link>
-            </ul>
-        </div>
-      </nav>
+        <div className="w-2/3 mx-auto">
+        <form>
+          <div className="mb-4">
+            <label className="block text-gray-600 text-sm font-bold mb-2" htmlFor="username" >Username/Email</label>
+            <input type="text" id="username" placeholder="Username/Email *" className="w-full px-3 py-2 border border-red-500 text-black rounded focus:outline-none focus:ring-2 focus:ring-red-500" required />
+            <p className="text-red-500 text-sm mt-1">Required field. Enter a valid email address.</p>
+          </div>
 
-      {/* Main Content */}
-      <div className="h-80 flex items-center justify-center text-center bg-gray-50 opacity-30">
+          <div className="flex justify-between mb-4">
+            <Link to="" className="text-sm text-blue-500 hover:underline">Forgot your username?</Link>
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-gray-600 text-sm font-bold mb-2" htmlFor="password">Password</label>
+            <input type="password" id="password" placeholder="Password *" className="w-full px-3 py-2 border border-gray-300 text-black rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+          </div>
+
+          <div className="flex items-center mb-4">
+            <input type="checkbox" id="remember" className="mr-2" />
+            <label htmlFor="remember" className="text-sm text-gray-600">Remember me</label>
+          </div>
+
+          <div className="flex justify-between mb-6">
+            <Link to="" className="text-sm text-blue-500 hover:underline">Reset password</Link>
+          </div>
+
+          <button type="submit" className="w-full bg-gray-300 text-gray-500 cursor-not-allowed py-2 rounded-lg font-semibold">LOG IN</button>
+
+          <div className="text-center mt-6">
+            <p className="text-sm text-gray-600">
+              Need an account?{" "}
+              <Link to="/sign-up"className="text-blue-500 font-semibold hover:underline">Create account</Link>
+            </p>
+          </div>
+        </form>
+        </div>
+
+        <div className="text-center mt-6 text-gray-500 text-xs">
+          <p>By continuing you agree to our <a href="#" className="text-blue-500 hover:underline">terms and conditions</a>.</p>
+          <p className="mt-4">&copy; 2024 DAT Solutions, LLC. All rights reserved.</p>
+          <a href="#" className="text-blue-500 hover:underline">Privacy Policy</a>
+        </div>
+
+
       </div>
-
-      {/* animation */}
-      <svg
-        className="absolute top-0 left-0 w-full h-full"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-        preserveAspectRatio="none"
-      >
-        {[...Array(5)].map((_, i) => (
-          <path
-            key={i}
-            ref={el => (lineRefs.current[i] = el)}
-            d="M0,256 C480,200 960,300 1440,256 L1440,320 L0,320 Z"
-            fill="transparent"
-            stroke="#00FF00"
-            strokeWidth="2"
-            opacity={0.5 - i * 0.1} // Decrease opacity for layers behind
-          />
-        ))}
-      </svg>
-
     </div>
   );
 };
 
-export default SignUp;
+export default LogIn;
