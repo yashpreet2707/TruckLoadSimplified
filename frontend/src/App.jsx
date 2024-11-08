@@ -1,20 +1,27 @@
-import { Outlet } from "react-router"
-import Sidebar from "./components/Sidebar"
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import SearchTrucks from './components/SearchTrucks.jsx'
+import Dashboard from './components/Dashboard.jsx'
+import SignIn from './components/SignIn.jsx'
+import SignUp from './components/SignUp.jsx'
+import Home from './components/Home.jsx'
+import Random from './components/Random.jsx'
 
-const App = () => {
+export default function App() {
   return (
-    <div className="flex">
+    <BrowserRouter>
+    <Routes>
 
-      <div className="w-1/5 h-screen border-r border-white">
-        <Sidebar />
-      </div>
+      <Route path='/' element={<Home />} />
 
-      <div className="w-4/5 h-screen">
-        <Outlet />
-      </div>
+      <Route path='/sign-in' element={<SignIn />} />
+      <Route path='/sign-up' element={<SignUp />} />
 
-    </div>
+      <Route path='/' element={<Random />} >
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/search-trucks' element={<SearchTrucks />} />
+      </Route>
+
+    </Routes>
+    </BrowserRouter>
   )
 }
-
-export default App
